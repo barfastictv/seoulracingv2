@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>RACING CHAMPIONSHIP</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#0b0d10;color:#f4f5f7;font-family:Arial,Helvetica,sans-serif}
-header{padding:28px 6%;border-bottom:1px solid #252930;background:#101318;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:900;letter-spacing:2px;font-size:24px}.season{color:#9aa1aa;font-size:14px}
-main{max-width:1250px;margin:auto;padding:35px 20px}
-.hero{margin-bottom:30px}.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:#9299a3;margin:0}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:25px 0}
-.card{background:#12161b;border:1px solid #252a31;border-radius:12px;padding:20px}.label{font-size:12px;color:#8f96a0;text-transform:uppercase;letter-spacing:1px}.value{font-size:30px;font-weight:800;margin-top:8px}
-.panel{background:#11151a;border:1px solid #252a31;border-radius:14px;overflow:hidden;margin-top:25px}
-.panel-head{padding:20px 22px;border-bottom:1px solid #252a31;display:flex;justify-content:space-between;align-items:center}
-.panel-head h2{margin:0;font-size:20px}
-input{background:#0b0d10;border:1px solid #303640;color:white;padding:10px 13px;border-radius:8px;outline:none}
-table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:15px 18px;border-bottom:1px solid #22272e}th{font-size:11px;color:#858c96;text-transform:uppercase;letter-spacing:1px}tr:last-child td{border-bottom:0}
-.rank{width:45px;color:#7f8791}.driver{font-weight:700}.team{color:#9299a3;font-size:13px;margin-top:4px}.points{font-weight:800}.pos{font-weight:700}
-footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
-@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:32px}table{min-width:760px}.panel{overflow-x:auto}.panel-head{min-width:760px}}
+* { box-sizing: border-box; }
+body { margin: 0; background: #0b0d10; color: #f4f5f7; font-family: Arial, Helvetica, sans-serif; }
+header { padding: 28px 6%; border-bottom: 1px solid #252930; background: #101318; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 900; letter-spacing: 2px; font-size: 24px; }
+.season { color: #9aa1aa; font-size: 14px; }
+nav { background-color: #11151a; padding: 10px 6%; display: flex; justify-content: center; gap: 20px; }
+nav a { color: #f4f5f7; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 4px; transition: background 0.3s; }
+nav a:hover { background-color: #252a31; }
+main { max-width: 1250px; margin: auto; padding: 20px; }
+.hero { margin-bottom: 30px; }
+.hero h1 { font-size: 42px; margin: 0 0 8px; }
+.hero p { color: #9299a3; margin: 0; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 25px 0; }
+.card { background: #12161b; border: 1px solid #252a31; border-radius: 12px; padding: 20px; }
+.label { font-size: 12px; color: #8f96a0; text-transform: uppercase; letter-spacing: 1px; }
+.value { font-size: 30px; font-weight: 800; margin-top: 8px; }
+.panel { background: #11151a; border: 1px solid #252a31; border-radius: 14px; overflow: hidden; margin-top: 25px; }
+.panel-head { padding: 20px 22px; border-bottom: 1px solid #252a31; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.panel-head h2 { margin: 0; font-size: 20px; }
+input { background: #0b0d10; border: 1px solid #303640; color: white; padding: 10px 13px; border-radius: 8px; outline: none; width: 200px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 15px 18px; border-bottom: 1px solid #22272e; }
+th { font-size: 11px; color: #858c96; text-transform: uppercase; letter-spacing: 1px; }
+tr:last-child td { border-bottom: 0; }
+.rank { width: 45px; color: #7f8791; }
+.driver { font-weight: 700; }
+.team { color: #9299a3; font-size: 13px; margin-top: 4px; }
+.points { font-weight: 800; }
+.pos { font-weight: 700; }
+footer { text-align: center; color: #666e78; padding: 35px; font-size: 12px; }
+@media(max-width: 800px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 32px; }
+  table { min-width: 760px; }
+  .panel { overflow-x: auto; }
+  .panel-head { min-width: 760px; }
+  nav { flex-direction: column; align-items: center; }
+  nav a { width: 100%; text-align: center; }
+}
 </style>
 </head>
 <body>
+<!-- Navigacijos meniu juosta -->
+<nav>
+  <a href="#vairuotojai">Vairuotojai</a>
+  <a href="#vairuotoju-iskaite">Vairuotojų įskaita</a>
+  <a href="#sezono-trasos">Sezono trasos</a>
+  <a href="#lenktyniu-taisyklės">Lenktynių taisyklės</a>
+</nav>
+
 <header>
   <div class="logo">RACING / CHAMPIONSHIP</div>
   <div class="season">SEASON 2026</div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero" id="vairuotojai">
     <h1>Championship Standings</h1>
     <p>Lenktynių sezono rezultatai, taškai ir paskutiniai važiavimai.</p>
   </section>
@@ -41,7 +73,7 @@ footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
     <div class="card"><div class="label">Sezono etapas</div><div class="value">08 / 12</div></div>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="vairuotoju-iskaite">
     <div class="panel-head">
       <h2>🏆 Vairuotojų įskaita</h2>
       <input id="search" placeholder="Ieškoti vairuotojo...">
@@ -52,14 +84,19 @@ footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
     </table>
   </section>
 
-  <section class="panel">
-    <div class="panel-head"><h2>⏱️ Paskutiniai važiavimai</h2></div>
-    <table>
-      <thead><tr><th>Vairuotojas</th><th>Trasa</th><th>Laikas</th><th>Data</th><th>Pozicija</th><th>Taškai</th></tr></thead>
-      <tbody id="laps"></tbody>
-    </table>
+  <section class="panel" id="sezono-trasos">
+    <div class="panel-head"><h2>⏱️ Sezono trasos</h2></div>
+    <!-- Čia gali būti papildomas turinys apie trasas -->
+    <p style="padding: 20px;">Sezono trasų informacija bus čia.</p>
+  </section>
+
+  <section class="panel" id="lenktyniu-taisyklės">
+    <div class="panel-head"><h2>📜 Lenktynių taisyklės</h2></div>
+    <!-- Čia gali būti taisyklių aprašymas -->
+    <p style="padding: 20px;">Lenktynių taisyklės bus čia.</p>
   </section>
 </main>
+
 <footer>RACING CHAMPIONSHIP • 2026</footer>
 
 <script>
