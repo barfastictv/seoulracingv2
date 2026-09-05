@@ -80,14 +80,6 @@ const laps=[
  ["Nojus Rimkus","Spa","1:48.902","28/08/2026","5","10"]
 ];
 
-  const laps=[
- ["Jonas Kazlauskas","Monza","1:42.381","04/09/2026","1","25"],
- ["Tomas Petrauskas","Spa","1:47.221","04/09/2026","3","15"],
- ["Mantas Jankauskas","Monza","1:43.442","04/09/2026","2","18"],
- ["Lukas Valaitis","Silverstone","1:51.034","28/08/2026","4","12"],
- ["Nojus Rimkus","Spa","1:48.902","28/08/2026","5","10"]
-];
-
 function render(list=drivers){
  const body=document.getElementById("standings");
  body.innerHTML=list.map((d,i)=>`<tr><td class="rank">${i+1}</td><td><div class="driver">${d.name}</div><div class="team">${d.team}</div></td><td class="points">${d.points}</td><td>${d.races}</td><td>${d.track}</td><td>${d.time}</td><td class="pos">${d.best}</td></tr>`).join("");
