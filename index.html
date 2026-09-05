@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RACING CHAMPIONSHIP</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0b0d10;color:#f4f5f7;font-family:Arial,Helvetica,sans-serif}
@@ -11,22 +11,13 @@ header{padding:28px 6%;border-bottom:1px solid #252930;background:#101318;displa
 main{max-width:1250px;margin:auto;padding:35px 20px}
 .hero{margin-bottom:30px}.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:#9299a3;margin:0}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:25px 0}
-.card{background:#12161b;border:1px solid #252a31;border-radius:12px;padding:20px}
-.label{font-size:12px;color:#8f96a0;text-transform:uppercase;letter-spacing:1px}
-.value{font-size:30px;font-weight:800;margin-top:8px}
+.card{background:#12161b;border:1px solid #252a31;border-radius:12px;padding:20px}.label{font-size:12px;color:#8f96a0;text-transform:uppercase;letter-spacing:1px}.value{font-size:30px;font-weight:800;margin-top:8px}
 .panel{background:#11151a;border:1px solid #252a31;border-radius:14px;overflow:hidden;margin-top:25px}
 .panel-head{padding:20px 22px;border-bottom:1px solid #252a31;display:flex;justify-content:space-between;align-items:center}
 .panel-head h2{margin:0;font-size:20px}
 input{background:#0b0d10;border:1px solid #303640;color:white;padding:10px 13px;border-radius:8px;outline:none}
-table{width:100%;border-collapse:collapse}
-th,td{text-align:left;padding:15px 18px;border-bottom:1px solid #22272e}
-th{font-size:11px;color:#858c96;text-transform:uppercase;letter-spacing:1px}
-tr:last-child td{border-bottom:0}
-.rank{width:45px;color:#7f8791}
-.driver{font-weight:700}
-.team{color:#9299a3;font-size:13px;margin-top:4px}
-.points{font-weight:800}
-.pos{font-weight:700}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:15px 18px;border-bottom:1px solid #22272e}th{font-size:11px;color:#858c96;text-transform:uppercase;letter-spacing:1px}tr:last-child td{border-bottom:0}
+.rank{width:45px;color:#7f8791}.driver{font-weight:700}.team{color:#9299a3;font-size:13px;margin-top:4px}.points{font-weight:800}.pos{font-weight:700}
 footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
 @media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:32px}table{min-width:760px}.panel{overflow-x:auto}.panel-head{min-width:760px}}
 </style>
@@ -50,10 +41,9 @@ footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
     <div class="card"><div class="label">Sezono etapas</div><div class="value">08 / 12</div></div>
   </section>
 
-  <!-- Vairuotojų įskaita -->
-  <section class="panel" id="vairuotoju-iskaite">
+  <section class="panel">
     <div class="panel-head">
-      <h2>🏆 Sezono vairuotojų įskaita</h2>
+      <h2>🏆 Vairuotojų įskaita</h2>
       <input id="search" placeholder="Ieškoti vairuotojo...">
     </div>
     <table>
@@ -62,33 +52,17 @@ footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
     </table>
   </section>
 
-  <!-- Lenktynių etapų lentelė -->
-  <section class="panel" id="lenktyniu-etapai">
-    <div class="panel-head"><h2>🚥 Lenktynių etapai</h2></div>
+  <section class="panel">
+    <div class="panel-head"><h2>⏱️ Paskutiniai važiavimai</h2></div>
     <table>
-      <thead>
-        <tr><th>Etapas</th><th>Data</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Kvalifikaciniai į antras lenktynes</td><td>Data</td></tr>
-        <tr><td>Pirmosios oficialios sezono lenktynės</td><td>Data</td></tr>
-        <tr><td>Antrosios lenktynės</td><td>Data</td></tr>
-        <tr><td>Trečiosios lenktynės</td><td>Data</td></tr>
-        <tr><td>Kvalifikacija į ketvirtasias</td><td>Data</td></tr>
-        <tr><td>Penktosios sezono lenktynės</td><td>Data</td></tr>
-        <tr><td>Sestosios lenktynės</td><td>Data</td></tr>
-        <tr><td>Septyntosios lenktynės</td><td>Data</td></tr>
-        <tr><td>Kvalifikacija aštuntos</td><td>Data</td></tr>
-        <tr><td>Devintosios lenktynės</td><td>Data</td></tr>
-        <tr><td>Finalas</td><td>Data</td></tr>
-      </tbody>
+      <thead><tr><th>Vairuotojas</th><th>Trasa</th><th>Laikas</th><th>Data</th><th>Pozicija</th><th>Taškai</th></tr></thead>
+      <tbody id="laps"></tbody>
     </table>
   </section>
 </main>
 <footer>RACING CHAMPIONSHIP • 2026</footer>
 
 <script>
-// Surastų dalyvių duomenys
 const drivers=[
  {name:"Jonas Kazlauskas",team:"BMW Motorsport",points:124,races:8,track:"Monza",time:"1:42.381",best:1},
  {name:"Tomas Petrauskas",team:"Red Bull Racing",points:108,races:8,track:"Spa",time:"1:47.221",best:2},
@@ -97,7 +71,7 @@ const drivers=[
  {name:"Nojus Rimkus",team:"McLaren",points:77,races:7,track:"Spa",time:"1:48.902",best:3},
  {name:"Dovydas Vaitkus",team:"Aston Martin",points:69,races:8,track:"Monza",time:"1:44.012",best:2}
 ];
-// Paskutinių važiavimų duomenys
+
 const laps=[
  ["Jonas Kazlauskas","Monza","1:42.381","04/09/2026","1","25"],
  ["Tomas Petrauskas","Spa","1:47.221","04/09/2026","3","15"],
@@ -106,26 +80,16 @@ const laps=[
  ["Nojus Rimkus","Spa","1:48.902","28/08/2026","5","10"]
 ];
 
-function renderStandings(list=drivers){
- const tbody=document.getElementById("standings");
- tbody.innerHTML=list.map((d,i)=>
-  `<tr>
-    <td class="rank">${i+1}</td>
-    <td><div class="driver">${d.name}</div><div class="team">${d.team}</div></td>
-    <td class="points">${d.points}</td>
-    <td>${d.races}</td>
-    <td>${d.track}</td>
-    <td>${d.time}</td>
-    <td class="pos">${d.best}</td>
-  </tr>`).join("");
+function render(list=drivers){
+ const body=document.getElementById("standings");
+ body.innerHTML=list.map((d,i)=>`<tr><td class="rank">${i+1}</td><td><div class="driver">${d.name}</div><div class="team">${d.team}</div></td><td class="points">${d.points}</td><td>${d.races}</td><td>${d.track}</td><td>${d.time}</td><td class="pos">${d.best}</td></tr>`).join("");
 }
 document.getElementById("laps").innerHTML=laps.map(x=>`<tr><td class="driver">${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td><td class="pos">${x[4]}</td><td class="points">${x[5]}</td></tr>`).join("");
-
 document.getElementById("search").addEventListener("input",e=>{
  const q=e.target.value.toLowerCase();
- renderStandings(drivers.filter(d=>d.name.toLowerCase().includes(q)||d.team.toLowerCase().includes(q)));
+ render(drivers.filter(d=>d.name.toLowerCase().includes(q)||d.team.toLowerCase().includes(q)));
 });
-renderStandings();
+render();
 </script>
 </body>
 </html>
