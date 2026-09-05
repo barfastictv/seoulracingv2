@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RACING CHAMPIONSHIP</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0b0d10;color:#f4f5f7;font-family:Arial,Helvetica,sans-serif}
+header{padding:28px 6%;border-bottom:1px solid #252930;background:#101318;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;letter-spacing:2px;font-size:24px}.season{color:#9aa1aa;font-size:14px}
+main{max-width:1250px;margin:auto;padding:35px 20px}
+.hero{margin-bottom:30px}.hero h1{font-size:42px;margin:0 0 8px}.hero p{color:#9299a3;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:25px 0}
+.card{background:#12161b;border:1px solid #252a31;border-radius:12px;padding:20px}.label{font-size:12px;color:#8f96a0;text-transform:uppercase;letter-spacing:1px}.value{font-size:30px;font-weight:800;margin-top:8px}
+.panel{background:#11151a;border:1px solid #252a31;border-radius:14px;overflow:hidden;margin-top:25px}
+.panel-head{padding:20px 22px;border-bottom:1px solid #252a31;display:flex;justify-content:space-between;align-items:center}
+.panel-head h2{margin:0;font-size:20px}
+input{background:#0b0d10;border:1px solid #303640;color:white;padding:10px 13px;border-radius:8px;outline:none}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:15px 18px;border-bottom:1px solid #22272e}th{font-size:11px;color:#858c96;text-transform:uppercase;letter-spacing:1px}tr:last-child td{border-bottom:0}
+.rank{width:45px;color:#7f8791}.driver{font-weight:700}.team{color:#9299a3;font-size:13px;margin-top:4px}.points{font-weight:800}.pos{font-weight:700}
+footer{text-align:center;color:#666e78;padding:35px;font-size:12px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:32px}table{min-width:760px}.panel{overflow-x:auto}.panel-head{min-width:760px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">RACING / CHAMPIONSHIP</div>
+  <div class="season">SEASON 2026</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Championship Standings</h1>
+    <p>Lenktynių sezono rezultatai, taškai ir paskutiniai važiavimai.</p>
+  </section>
+
+  <section class="stats">
+    <div class="card"><div class="label">Dalyviai</div><div class="value" id="drivers">12</div></div>
+    <div class="card"><div class="label">Lenktynės</div><div class="value">8</div></div>
+    <div class="card"><div class="label">Paskutinė trasa</div><div class="value" style="font-size:22px">Monza</div></div>
+    <div class="card"><div class="label">Sezono etapas</div><div class="value">08 / 12</div></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>🏆 Vairuotojų įskaita</h2>
+      <input id="search" placeholder="Ieškoti vairuotojo...">
+    </div>
+    <table>
+      <thead><tr><th>#</th><th>Vairuotojas</th><th>Taškai</th><th>Lenktynės</th><th>Paskutinė trasa</th><th>Laikas</th><th>Geriausia vieta</th></tr></thead>
+      <tbody id="standings"></tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>⏱️ Paskutiniai važiavimai</h2></div>
+    <table>
+      <thead><tr><th>Vairuotojas</th><th>Trasa</th><th>Laikas</th><th>Data</th><th>Pozicija</th><th>Taškai</th></tr></thead>
+      <tbody id="laps"></tbody>
+    </table>
+  </section>
+</main>
+<footer>RACING CHAMPIONSHIP • 2026</footer>
+
+<script>
+const drivers=[
+ {name:"Jonas Kazlauskas",team:"BMW Motorsport",points:124,races:8,track:"Monza",time:"1:42.381",best:1},
+ {name:"Tomas Petrauskas",team:"Red Bull Racing",points:108,races:8,track:"Spa",time:"1:47.221",best:2},
+ {name:"Mantas Jankauskas",team:"Ferrari",points:96,races:7,track:"Monza",time:"1:43.442",best:1},
+ {name:"Lukas Valaitis",team:"Mercedes AMG",points:88,races:8,track:"Silverstone",time:"1:51.034",best:2},
+ {name:"Nojus Rimkus",team:"McLaren",points:77,races:7,track:"Spa",time:"1:48.902",best:3},
+ {name:"Dovydas Vaitkus",team:"Aston Martin",points:69,races:8,track:"Monza",time:"1:44.012",best:2}
+];
+
+const laps=[
+ ["Jonas Kazlauskas","Monza","1:42.381","04/09/2026","1","25"],
+ ["Tomas Petrauskas","Spa","1:47.221","04/09/2026","3","15"],
+ ["Mantas Jankauskas","Monza","1:43.442","04/09/2026","2","18"],
+ ["Lukas Valaitis","Silverstone","1:51.034","28/08/2026","4","12"],
+ ["Nojus Rimkus","Spa","1:48.902","28/08/2026","5","10"]
+];
+
+function render(list=drivers){
+ const body=document.getElementById("standings");
+ body.innerHTML=list.map((d,i)=>`<tr><td class="rank">${i+1}</td><td><div class="driver">${d.name}</div><div class="team">${d.team}</div></td><td class="points">${d.points}</td><td>${d.races}</td><td>${d.track}</td><td>${d.time}</td><td class="pos">${d.best}</td></tr>`).join("");
+}
+document.getElementById("laps").innerHTML=laps.map(x=>`<tr><td class="driver">${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td><td>${x[3]}</td><td class="pos">${x[4]}</td><td class="points">${x[5]}</td></tr>`).join("");
+document.getElementById("search").addEventListener("input",e=>{
+ const q=e.target.value.toLowerCase();
+ render(drivers.filter(d=>d.name.toLowerCase().includes(q)||d.team.toLowerCase().includes(q)));
+});
+render();
+</script>
+</body>
+</html>
