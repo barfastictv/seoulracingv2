@@ -50,7 +50,7 @@ footer { text-align: center; color: #666e78; padding: 35px; font-size: 12px; }
 <!-- Navigacijos meniu juosta -->
 <nav>
   <a href="#vairuotojai">Vairuotojai</a>
-  <a href="#vairuotoju-iskaite">Vairuotojų įskaita</a>
+  <a href="#vairuotoju-iskaite">Sezono vairuotojų įskaita</a>
   <a href="#sezono-trasos">Sezono trasos</a>
   <a href="#lenktyniu-taisyklės">Lenktynių taisyklės</a>
 </nav>
@@ -73,9 +73,10 @@ footer { text-align: center; color: #666e78; padding: 35px; font-size: 12px; }
     <div class="card"><div class="label">Sezono etapas</div><div class="value">08 / 12</div></div>
   </section>
 
+  <!-- Sezono vairuotojų įskaita (pakeista pavadinimas) -->
   <section class="panel" id="vairuotoju-iskaite">
     <div class="panel-head">
-      <h2>🏆 Vairuotojų įskaita</h2>
+      <h2>🏆 Sezono vairuotojų įskaita</h2>
       <input id="search" placeholder="Ieškoti vairuotojo...">
     </div>
     <table>
@@ -84,15 +85,40 @@ footer { text-align: center; color: #666e78; padding: 35px; font-size: 12px; }
     </table>
   </section>
 
+  <!-- Papildomos lenktynių lentelės -->
   <section class="panel" id="sezono-trasos">
     <div class="panel-head"><h2>⏱️ Sezono trasos</h2></div>
-    <!-- Čia gali būti papildomas turinys apie trasas -->
     <p style="padding: 20px;">Sezono trasų informacija bus čia.</p>
   </section>
 
+  <section class="panel" id="lenktyniu-lenteles">
+    <div class="panel-head"><h2>🚥 Lenktynių etapai</h2></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Etapas</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Kvalifikaciniai į antras lenktynes</td><td>Data</td></tr>
+        <tr><td>Pirmosios oficialios sezono lenktynės</td><td>Data</td></tr>
+        <tr><td>Antrosios lenktynės</td><td>Data</td></tr>
+        <tr><td>Trečiosios lenktynės</td><td>Data</td></tr>
+        <tr><td>Kvalifikacija į ketvirtasias</td><td>Data</td></tr>
+        <tr><td>Penktosios sezono lenktynės</td><td>Data</td></tr>
+        <tr><td>Sestosios lenktynės</td><td>Data</td></tr>
+        <tr><td>Septyntosios lenktynės</td><td>Data</td></tr>
+        <tr><td>Kvalifikacija aštuntos</td><td>Data</td></tr>
+        <tr><td>Devintosios lenktynės</td><td>Data</td></tr>
+        <tr><td>Finalas</td><td>Data</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Lenktynių taisyklės -->
   <section class="panel" id="lenktyniu-taisyklės">
     <div class="panel-head"><h2>📜 Lenktynių taisyklės</h2></div>
-    <!-- Čia gali būti taisyklių aprašymas -->
     <p style="padding: 20px;">Lenktynių taisyklės bus čia.</p>
   </section>
 </main>
